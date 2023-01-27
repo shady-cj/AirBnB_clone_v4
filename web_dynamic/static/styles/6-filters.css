@@ -21,7 +21,7 @@ button {
 button:hover {
     opacity: 0.9;
 }
-.filters div {
+.filters > div {
     display: inline-grid;
 }
 .filters h2 {
@@ -31,15 +31,20 @@ button:hover {
     font-weight: 600;
 }
 .filters h3 {
-    margin-left: 15%;
+    margin-left: 2rem;
     margin-bottom: 0;
     font-weight: 600;
 }
 .filters h4 {
-    margin-left: 15%;
-    margin-top: 0;
+    margin: 0;
+    height: 2rem;
+    margin-left: 2rem;
+    margin-top: 0.2rem;
     font-weight: 400;
     font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .locations {
     height: 100%;
@@ -69,13 +74,16 @@ button:hover {
 }
 
 .amenities .popover {
-    padding: 10px 0;
+    padding:10px 0;
+    padding-left: 2rem;
     margin-left: -5px;
     margin-top: 0%;
 }
 
 .amenities .popover ul{
     margin: 0px;
+    padding:0;
+    padding-top: 5px;
 }
 
 .locations .popover {
@@ -84,14 +92,14 @@ button:hover {
 .popover ul {
     list-style-type: none;
     padding-bottom: 10px;
-    padding-left: 10px;
+    
 }
 .popover ul li{
     padding: 4px;
-    padding-left: 10px;
+    padding-left: 0;
 }
 .popover ul li input[type="checkbox"] {
-    margin: 0 10px;
+    margin-right: 10px;
 }
 
 .popover ul h2{
