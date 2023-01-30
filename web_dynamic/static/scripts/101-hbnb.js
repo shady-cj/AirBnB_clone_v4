@@ -161,7 +161,7 @@ $(function () {
                 e.stopPropagation();
                 const placeId = $(this).attr("data-placeID")
                 const endpoint = `http://0.0.0.0:5001/api/v1/places/${placeId}/reviews`
-                const reviewUL = $(parentEl).find(".reviews ul")
+                const reviewUL = $(this).parent().siblings("ul")
                 if ($(el).text() == "show")
                 {
 
@@ -170,15 +170,16 @@ $(function () {
                         {
                             $(reviewUL).html("")
                             $.each(response, function(index, review) {
-                                const li = "<li>"
                                 const content = `
+                                            <li>
                                                 <div class="review_item">
-                                                    <h3>From ${review.user.first_name} ${review.user.last_name} on ${review.created_at}</h3>
+                                                    <h3>From ${review.user?.first_name?review.user.first_name:""} ${review.user?.last_name ? review.user.last_name : ""} on ${review.created_at}</h3>
                                                     <p class="review_text">${review.text}</p>
                                                 </div>
+                                            </li>
                                             `
-                                $(li).html(content)
-                                $(reviewUL).append(li)
+                                
+                                $(reviewUL).append(content)
                             })
                             $(el).text('hide')
                         }
